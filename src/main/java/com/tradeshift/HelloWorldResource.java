@@ -11,7 +11,7 @@ import javax.ws.rs.core.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.*;
 
-import com.tradeshift.service.HelloWorldInterface;
+import com.tradeshift.service.HelloWorldService;
 
 
 @Path("/")
@@ -19,7 +19,7 @@ import com.tradeshift.service.HelloWorldInterface;
 public class HelloWorldResource {
 
     @Autowired
-    private HelloWorldInterface helloWorldService;
+    private HelloWorldService helloWorldService;
 
     @GET
     @Path("hello")
