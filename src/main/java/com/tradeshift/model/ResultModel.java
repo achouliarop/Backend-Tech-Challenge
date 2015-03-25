@@ -1,4 +1,4 @@
-package com.tradeshift;
+package com.tradeshift.model;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlElement;
@@ -7,15 +7,15 @@ import javax.xml.bind.annotation.XmlElement;
 public class ResultModel {
 
     @XmlElement(name = "Message")
-    public void setMsg(String content) {
+    public void setMessage(MessageModel content) {
 
         this.content = content;
     }
 
-    public String getMsg() {
+    public MessageModel getMessage() {
 
         return content;
     }
 
-    private String content;
+    private MessageModel content;
 }

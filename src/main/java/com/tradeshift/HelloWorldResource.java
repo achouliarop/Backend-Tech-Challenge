@@ -11,6 +11,8 @@ import javax.ws.rs.core.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.*;
 
+import com.tradeshift.model.MessageModel;
+import com.tradeshift.model.ResultModel;
 import com.tradeshift.service.HelloWorldService;
 
 
@@ -38,14 +40,18 @@ public class HelloWorldResource {
             );
         }
 
-        ResultModel rM = new ResultModel();
 
-        String output = helloWorldService.getHelloWorldMessage(name);
+        //init
+        MessageModel messageModel = new MessageModel();
+        //set the name
+        messageModel.setContent(helloWorldService.getHelloWorldMessage(name));
 
-        rM.setMsg(output);
+        //init
+        ResultModel output = new ResultModel();
+        //set name
+        output.setMessage(messageModel);
 
-        /*return Response.status(200).entity(output).build();*/
-        return rM;
+        return output;
     }
 
 }
