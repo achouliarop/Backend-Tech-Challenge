@@ -13,8 +13,6 @@ public class AppConfig{
 
     @Bean(name = "helloWorldService")
     public HelloWorldInterface getHelloWorldService() {
-        HelloWorldService helloWorldService = new HelloWorldService();
-
-        return helloWorldService;
+        return new HelloWorldService();
     }
 }
