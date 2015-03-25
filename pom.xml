@@ -51,19 +51,6 @@
                             </script>
                         </configuration>
                     </execution>
-                    <execution>
-                        <id>deploy</id>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <phase>deploy</phase>
-                        <configuration>
-                            <script>
-                                <!--docker push ${docker.imageName}-->
-                                echo '123'
-                            </script>
-                        </configuration>
-                    </execution>
                 </executions>
             </plugin>
         </plugins>
