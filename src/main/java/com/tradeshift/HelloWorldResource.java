@@ -16,7 +16,7 @@ import com.tradeshift.service.HelloWorldInterface;
 
 @Path("/")
 @Controller
-public class  HelloWorld {
+public class HelloWorldResource {
 
     @Autowired
     private HelloWorldInterface helloWorldService;
