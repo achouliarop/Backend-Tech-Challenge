@@ -18,8 +18,12 @@ import com.tradeshift.service.HelloWorldService;
 @Controller
 public class HelloWorldResource {
 
-    @Autowired
     private HelloWorldService helloWorldService;
+
+    @Autowired
+    public HelloWorldResource(HelloWorldService helloWorld) {
+        this.helloWorldService = helloWorld;
+    }
 
     @GET
     @Path("hello")
