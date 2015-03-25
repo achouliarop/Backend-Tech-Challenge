@@ -36,7 +36,7 @@ public class HelloWorldResource {
 
         ResultModel rM = new ResultModel();
 
-        String output = helloWorldService.getHelloMsg(name);
+        String output = helloWorldService.getHelloWorldMessage(name);
 
         rM.setMsg(output);
 

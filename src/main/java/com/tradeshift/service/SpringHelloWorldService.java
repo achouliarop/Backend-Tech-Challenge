@@ -5,7 +5,7 @@ public class SpringHelloWorldService implements HelloWorldService {
 
 
     @Override
-    public String getHelloMsg(String name){
+    public String getHelloWorldMessage(String name){
 
         return "hello " + name;
     }
