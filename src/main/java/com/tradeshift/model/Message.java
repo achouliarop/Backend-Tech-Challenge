@@ -1,7 +1,13 @@
 package com.tradeshift.model;
 
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Message {
+
+    @XmlElement(name = "content")
     private String content;
 
     public Message() {

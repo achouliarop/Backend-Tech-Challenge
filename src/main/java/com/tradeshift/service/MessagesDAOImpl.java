@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
 import com.tradeshift.model.Message;
+import com.tradeshift.model.ResultModel;
 
 public class MessagesDAOImpl implements MessagesDAO {
 
@@ -26,18 +27,21 @@ public class MessagesDAOImpl implements MessagesDAO {
     }
 
     @Override
-    public List<Message> getMessages(int amount) {
+    public List<ResultModel> getMessages(int amount) {
 
         String sql = "SELECT * FROM message";
-        List<Message> listMessage = jdbcTemplate.query(sql, new RowMapper<Message>() {
+        List<ResultModel> listMessage = jdbcTemplate.query(sql, new RowMapper<ResultModel>() {
 
             @Override
-            public Message mapRow(ResultSet rs, int rowNum) throws SQLException {
+            public ResultModel mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Message aMessage = new Message();
 
                 aMessage.setContent(rs.getString("name"));
 
-                return aMessage;
+                ResultModel output = new ResultModel();
+                output.setMessage(aMessage);
+
+                return output;
             }
 
         });

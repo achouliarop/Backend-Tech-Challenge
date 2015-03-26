@@ -6,16 +6,16 @@ import javax.xml.bind.annotation.XmlElement;
 @XmlRootElement
 public class ResultModel {
 
-    @XmlElement(name = "Message")
-    public void setMessage(MessageModel content) {
+    @XmlElement(name = "message")
+    public void setMessage(Message content) {
 
         this.content = content;
     }
 
-    public MessageModel getMessage() {
+    public Message getMessage() {
 
         return content;
     }
 
-    private MessageModel content;
+    private Message content;
 }
