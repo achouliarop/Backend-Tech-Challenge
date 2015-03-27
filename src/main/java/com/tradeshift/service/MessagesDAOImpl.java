@@ -29,7 +29,10 @@ public class MessagesDAOImpl implements MessagesDAO {
     @Override
     public List<ResultModel> getMessages(int amount) {
 
-        String sql = "SELECT * FROM message";
+
+        String sql = "WITH t AS " +
+                        "(SELECT * FROM message ORDER BY date DESC LIMIT 10) " +
+                    "SELECT * FROM t ORDER BY date ASC";
         List<ResultModel> listMessage = jdbcTemplate.query(sql, new RowMapper<ResultModel>() {
 
             @Override
