@@ -2,12 +2,12 @@ package com.tradeshift.service;
 
 import java.util.List;
 
-import com.tradeshift.model.Message;
-import com.tradeshift.model.ResultModel;
+import com.tradeshift.model.DBMessage;
 
 public interface MessagesDAO {
-    public void insert(Message message);
 
-    public List<ResultModel> getMessages (int amount);
+    public void insert(String name);
+
+    public List<DBMessage> getMessages (int amount);
 
 }
