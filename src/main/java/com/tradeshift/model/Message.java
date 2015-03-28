@@ -7,22 +7,23 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Message {
 
-    @XmlElement(name = "content")
-    private String content;
+    @XmlElement(name = "message")
+    private Content content;
 
     public Message() {
 
     }
 
-    public Message(String content) {
+    public Message(Content content) {
         this.content = content;
     }
 
-    public String getContent() {
+    public Content getMessage() {
+
         return content;
     }
 
-    public void setContent(String content) {
+    public void setMessage(Content content) {
         this.content = content;
     }
 }
