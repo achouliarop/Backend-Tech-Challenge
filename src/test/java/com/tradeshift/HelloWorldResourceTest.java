@@ -67,11 +67,6 @@ public class HelloWorldResourceTest {
 
     @Test
     public void test_insertNameSuccessfully() {
-/*        MessagesDAO mockMessagesDAO = mock(MessagesDAO.class);
-        HelloWorldService helloWorldService = new HelloWorldServiceImpl(mockMessagesDAO);
-        helloWorldService.insert("Anastasios");
-        verify(mockMessagesDAO).insert(eq("Anastasios"));*/
-
         MessagesDAO mockMessagesDAO = mock(MessagesDAO.class);
         HelloWorldService helloWorldService = new HelloWorldServiceImpl(mockMessagesDAO);
         HelloWorldResource helloWorldResource = new HelloWorldResource(helloWorldService);

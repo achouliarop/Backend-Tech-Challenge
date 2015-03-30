@@ -1,17 +1,15 @@
 package com.tradeshift.resources;
 
-import javax.annotation.PostConstruct;
-import javax.sql.DataSource;
-
+import com.tradeshift.service.HelloWorldService;
+import com.tradeshift.service.HelloWorldServiceImpl;
+import com.tradeshift.service.MessagesDAO;
+import com.tradeshift.service.MessagesDAOImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
-import com.tradeshift.service.HelloWorldService;
-import com.tradeshift.service.HelloWorldServiceImpl;
-import com.tradeshift.service.MessagesDAO;
-import com.tradeshift.service.MessagesDAOImpl;
+import javax.sql.DataSource;
 
 @Configuration
 public class AppConfig{
