@@ -24,8 +24,11 @@ public class HelloWorldServiceImpl implements HelloWorldService {
     }
 
     @Override
-    public String getHelloWorldMessage(String name){
+    public String getHelloWorldMessage(String name) throws IllegalArgumentException{
 
+        if(name == null || name.trim().length() == 0) {
+            throw new IllegalArgumentException("Name can not be null or empty");
+        }
         return "hello " + name;
     }
 
