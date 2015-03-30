@@ -40,7 +40,7 @@ public class HelloWorldResourceTest {
         List<DBMessage> mockMessagesList = new ArrayList<>();
 
         for (int i=0; i< 10; i++) {
-            mockMessagesList.add(new DBMessage("Taso",new Timestamp(0)));
+            mockMessagesList.add(new DBMessage("Taso",new Timestamp(i)));
         }
         when(mockMessagesDAO.getMessages(10)).thenReturn(mockMessagesList);
 
@@ -50,7 +50,7 @@ public class HelloWorldResourceTest {
         Assert.assertEquals(getMessages.size(), 10);
         Assert.assertNotNull(helloWorldResource.getMessages());
         Assert.assertEquals(helloWorldResource.getMessages().getMessageCount(), 10);
-        Assert.assertEquals(helloWorldResource.getMessages().getLastMessage(), new Timestamp(0));
+        Assert.assertEquals(helloWorldResource.getMessages().getLastMessage(), new Timestamp(9));
     }
 
     @Test
