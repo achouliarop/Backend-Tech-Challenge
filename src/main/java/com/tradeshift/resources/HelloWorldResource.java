@@ -1,11 +1,6 @@
 package com.tradeshift.resources;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,14 +27,15 @@ public class HelloWorldResource {
     @Produces("application/json")
     @Consumes({"text/plain,text/html"})
     public Message insertNameToDB(@PathParam("name") String name) {
+
         String content;
-        try {
+
+        if (name == null) {
+            throw new BadRequestException("Name can not be empty");
+        } else {
             content = helloWorldService.getHelloWorldMessage(name);
             helloWorldService.insert(name);
-        } catch (NullPointerException e) {
-            content = "Name can not be empty";
         }
-
         return new Message(new Content(content));
     }
 
