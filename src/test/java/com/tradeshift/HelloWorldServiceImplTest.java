@@ -19,7 +19,7 @@ import static org.mockito.Mockito.*;
 public class HelloWorldServiceImplTest {
 
     @Test
-    public void test_getTenResultsFromDatabase() {
+    public void getTenResultsFromDatabase() {
         MessagesDAO mockMessagesDAO = mock(MessagesDAO.class);
         List<DBMessage> mockMessagesList = new ArrayList<>();
 
@@ -34,7 +34,7 @@ public class HelloWorldServiceImplTest {
     }
 
     @Test
-    public void test_getNoResultsFromDatabase() {
+    public void getNoResultsFromDatabase() {
         MessagesDAO mockMessagesDAO = mock(MessagesDAO.class);
         when(mockMessagesDAO.getMessages(10)).thenReturn(new ArrayList<DBMessage>());
         HelloWorldService helloWorldService = new HelloWorldServiceImpl(mockMessagesDAO);
@@ -43,7 +43,7 @@ public class HelloWorldServiceImplTest {
     }
 
     @Test
-    public void test_insertNameSuccessfully() {
+    public void insertNameSuccessfully() {
         MessagesDAO mockMessagesDAO = mock(MessagesDAO.class);
         HelloWorldService helloWorldService = new HelloWorldServiceImpl(mockMessagesDAO);
         helloWorldService.insert("Anastasios");
@@ -51,7 +51,7 @@ public class HelloWorldServiceImplTest {
     }
 
     @Test
-    public void test_insertNullName() {
+    public void insertNullName() {
         MessagesDAO mockMessagesDAO = mock(MessagesDAO.class);
         HelloWorldService helloWorldService = new HelloWorldServiceImpl(mockMessagesDAO);
 

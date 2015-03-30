@@ -31,6 +31,7 @@ public class HelloWorldResource {
         String content;
 
         if (name == null) {
+            content = name;
             throw new BadRequestException("Name can not be empty");
         } else {
             content = helloWorldService.getHelloWorldMessage(name);

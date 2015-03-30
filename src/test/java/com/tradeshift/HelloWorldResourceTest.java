@@ -34,7 +34,7 @@ public class HelloWorldResourceTest {
     }
 
     @Test
-    public void test_returnTenResults() {
+    public void returnTenResults() {
 
         MessagesDAO mockMessagesDAO = mock(MessagesDAO.class);
         List<DBMessage> mockMessagesList = new ArrayList<>();
@@ -54,7 +54,7 @@ public class HelloWorldResourceTest {
     }
 
     @Test
-    public void test_returnNoResults() {
+    public void returnNoResults() {
         MessagesDAO mockMessagesDAO = mock(MessagesDAO.class);
         when(mockMessagesDAO.getMessages(10)).thenReturn(new ArrayList<DBMessage>());
         HelloWorldService helloWorldService = new HelloWorldServiceImpl(mockMessagesDAO);
@@ -66,7 +66,7 @@ public class HelloWorldResourceTest {
     }
 
     @Test
-    public void test_insertNameSuccessfully() {
+    public void insertNameSuccessfully() {
         MessagesDAO mockMessagesDAO = mock(MessagesDAO.class);
         HelloWorldService helloWorldService = new HelloWorldServiceImpl(mockMessagesDAO);
         HelloWorldResource helloWorldResource = new HelloWorldResource(helloWorldService);
@@ -75,9 +75,9 @@ public class HelloWorldResourceTest {
     }
 
     @Test
-    public void test_insertNullName() {
-        Message message = helloWorldResource.insertNameToDB(null);
-        Assert.assertEquals(message.getMessage().getContent(), null);
+    public void insertNullName() {
+        Message message = helloWorldResource.insertNameToDB("");
+        Assert.assertEquals(null, message.getMessage().getContent());
         verify(this.mockMessagesDAO, never()).insert(any(String.class));
     }
 }
