@@ -11,12 +11,13 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import javax.ws.rs.BadRequestException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.mockito.Matchers.any;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class HelloWorldResourceTest {
 
@@ -74,10 +75,8 @@ public class HelloWorldResourceTest {
         Assert.assertEquals("hello Taso", message.getMessage().getContent());
     }
 
-    @Test
+    @Test(expected = BadRequestException.class)
     public void insertNullName() {
-        Message message = helloWorldResource.insertNameToDB("");
-        Assert.assertEquals(null, message.getMessage().getContent());
-        verify(this.mockMessagesDAO, never()).insert(any(String.class));
+        Message message = helloWorldResource.insertNameToDB(null);
     }
 }

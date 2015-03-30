@@ -62,4 +62,26 @@ public class HelloWorldServiceImplTest {
             Assert.assertTrue(true);
         }
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void insertEmptyName() {
+        MessagesDAO mockMessagesDAO = mock(MessagesDAO.class);
+        HelloWorldService helloWorldService = new HelloWorldServiceImpl(mockMessagesDAO);
+
+        helloWorldService.insert("");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void getHelloWorldMessageWithNullEntered() {
+        MessagesDAO mockMessagesDAO = mock(MessagesDAO.class);
+        HelloWorldService helloWorldService = new HelloWorldServiceImpl(mockMessagesDAO);
+        helloWorldService.getHelloWorldMessage(null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void getHelloWorldMessageWithEmptyString(){
+        MessagesDAO mockMessagesDAO = mock(MessagesDAO.class);
+        HelloWorldService helloWorldService = new HelloWorldServiceImpl(mockMessagesDAO);
+        helloWorldService.getHelloWorldMessage("");
+    }
 }
