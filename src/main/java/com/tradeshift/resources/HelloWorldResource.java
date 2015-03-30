@@ -10,6 +10,8 @@ import javax.ws.rs.Produces;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import com.tradeshift.model.Content;
+import com.tradeshift.model.Message;
 import com.tradeshift.model.RecentModel;
 import com.tradeshift.service.HelloWorldService;
 
@@ -29,8 +31,16 @@ public class HelloWorldResource {
     @Path("/names/{name}")
     @Produces("application/json")
     @Consumes({"text/plain,text/html"})
-    public void insertNameToDB(@PathParam("name") String name) {
-        helloWorldService.insert(name);
+    public Message insertNameToDB(@PathParam("name") String name) {
+        String content;
+        try {
+            content = helloWorldService.getHelloWorldMessage(name);
+            helloWorldService.insert(name);
+        } catch (NullPointerException e) {
+            content = "Name can not be empty";
+        }
+
+        return new Message(new Content(content));
     }
 
     @GET
