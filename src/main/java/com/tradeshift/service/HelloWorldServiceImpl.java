@@ -31,8 +31,8 @@ public class HelloWorldServiceImpl implements HelloWorldService {
 
     @Override
     public void insert(String name) {
-        if(name == null && name.isEmpty()) {
-            throw new NullPointerException("String is null or empty");
+        if(name.isEmpty()) {
+            throw new IllegalArgumentException("String is null or empty");
         }
         this.messagesDAO.insert(name);
     }
