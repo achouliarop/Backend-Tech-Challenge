@@ -19,6 +19,10 @@ public class HelloWorldServiceImpl implements HelloWorldService {
     public HelloWorldServiceImpl() {
     }
 
+    public HelloWorldServiceImpl(MessagesDAO messagesDAO) {
+        this.messagesDAO = messagesDAO;
+    }
+
     @Override
     public String getHelloWorldMessage(String name){
 
