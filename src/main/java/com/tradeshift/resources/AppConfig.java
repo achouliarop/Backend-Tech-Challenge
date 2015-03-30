@@ -25,19 +25,11 @@ public class AppConfig{
         String addr = System.getenv("DB_PORT_5432_TCP_ADDR");
         String port = System.getenv("DB_PORT_5432_TCP_PORT");
         if (addr == null || port == null) {
-            throw new IllegalArgumentException("Can not connect to postgress using variables  "  + "\n env:" + System.getenv());
+            throw new IllegalArgumentException("Can not connect to postgres using variables  "  + "\n env:" + System.getenv());
         }
 
         SimpleDriverDataSource dataSource = new SimpleDriverDataSource(new org.postgresql.Driver(), "jdbc:postgresql://"+ addr+":"+port+ "/messagesdb", "messagesdb", "password");
-        String sql = "DROP TABLE IF EXISTS message;\n" +
-                "\n" +
-                "CREATE TABLE message\n" +
-                "(\n" +
-                "  message_id serial NOT NULL,\n" +
-                "  name text NOT NULL,\n" +
-                "  date timestamp without time zone DEFAULT now(),\n" +
-                "  CONSTRAINT message_pkey PRIMARY KEY (message_id)\n" +
-                ")";
+        String sql = "CREATE TABLE IF NOT EXISTS message (message_id serial NOT NULL, name text NOT NULL, date timestamp without time zone DEFAULT now(), CONSTRAINT message_pkey PRIMARY KEY (message_id))";
 
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         jdbcTemplate.update(sql);
