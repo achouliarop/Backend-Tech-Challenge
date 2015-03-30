@@ -25,7 +25,7 @@ public class HelloWorldResourceTest {
     private HelloWorldResource helloWorldResource;
 
     @Before
-    public void SetUp() {
+    public void setUp() {
         this.mockMessagesDAO = mock(MessagesDAO.class);
         this.mockHelloWorldService = mock(HelloWorldService.class);
         this.helloWorldResource = new HelloWorldResource(mockHelloWorldService);
