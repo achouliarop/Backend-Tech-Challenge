@@ -20,7 +20,7 @@ public class Message {
 
     public Content getMessage() {
 
-        return content;
+        return this.content;
     }
 
     public void setMessage(Content content) {

@@ -16,7 +16,7 @@ public class RecentModel {
     public RecentModel() {
 
         this.messageCount = 0;
-        this.lastMessage = null;
+        this.lastMessage = new Timestamp(0);
         this.messages = new ArrayList<>();
     }
 
