@@ -53,7 +53,7 @@ http://<b>(Insert the IP from the boot2docker logs--without port)</b>/hello?name
 <li>Run a postgres image:</li>
 <li>docker run --name some-postgres -e POSTGRES_PASSWORD=password -e POSTGRES_USER=messagesdb -d postgres</li>
 <li>Link the webservice image with the postgres
-<li>docker run -p 80:8080 --link some-postgres:tradeshift/codechallenge</li>
+<li>docker run -p 80:8080 --link some-postgres:db tradeshift/codechallenge</li>
 <li>Add a name to DB:</li>
 <li>curl -X POST http://{Insert the IP from the boot2docker logs--without port}/messages/names/$name</li>
 <li>Get 10 recent results from DB</li>
