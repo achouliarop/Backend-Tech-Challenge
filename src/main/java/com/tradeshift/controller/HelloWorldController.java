@@ -11,6 +11,7 @@ public class HelloWorldController {
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView Index() {
+
         return new ModelAndView("index");
     }
 }
