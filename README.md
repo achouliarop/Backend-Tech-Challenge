@@ -1,5 +1,7 @@
 # Backend-Tech-Challenge
 
+<b>Part 1</b>
+
 A dockerized 'Hello World' web service with the following input/output
 
 curl http://localhost:8080/hello?name=$name must produce: {"Message": { "content": "hello $name"}}
@@ -32,4 +34,28 @@ It uses the following technologies:
 <li>docker run -p 80:8080 tradeshift/codechallenge</li>
 <li>After the jetty runs just go to
 http://<b>(Insert the IP from the boot2docker logs--without port)</b>/hello?name=taso</li>
+</ul>
+
+
+---------------------------------------------------------------------------------------
+
+<b>Part 2</b>
+
+<ul>
+<li>The messages are stored now in a postgres database</li>
+<li>The database is accessed using Spring JDBC</li>
+<li>The project build runs JUnit tests using Mockito for mock objects</li>
+<li>Test coverage must be measuerd using Jacoco, and if the line coverage falls below 60%, the build must fail.</li>
+</ul>
+
+<b>RUN</b> Boot2docker and Add commands
+<ul>
+<li>Run a postgres image:</li>
+<li>docker run --name some-postgres -e POSTGRES_PASSWORD=password -e POSTGRES_USER=messagesdb -d postgres</li>
+<li>Link the webservice image with the postgres
+<li>docker run -p 80:8080 --link some-postgres:db tradeshift/codechallenge</li>
+<li>Add a name to DB:</li>
+<li>curl -X POST http://{Insert the IP from the boot2docker logs--without port}/messages/names/$name</li>
+<li>Get 10 recent results from DB</li>
+<li>curl -X GET http://{Insert the IP from the boot2docker logs--without port}/messages/recent</li>
 </ul>
