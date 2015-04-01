@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class HelloWorldController {
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView Index() {
+    public ModelAndView index() {
 
         return new ModelAndView("index");
     }
