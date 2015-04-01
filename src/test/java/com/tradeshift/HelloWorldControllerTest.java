@@ -9,7 +9,7 @@ public class HelloWorldControllerTest {
 
     @Test
     public void checkIfViewIsReturnedCorrectly() {
-        ModelAndView modelAndView = new HelloWorldController().Index();
+        ModelAndView modelAndView = new HelloWorldController().index();
         Assert.assertEquals("index", modelAndView.getViewName());
     }
 }
